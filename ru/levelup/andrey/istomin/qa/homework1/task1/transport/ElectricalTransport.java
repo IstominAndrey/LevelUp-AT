@@ -10,11 +10,11 @@ public class ElectricalTransport extends Transport{
         this.power = power;
     }
 
-    public int getPowerConsumption() {
+    public int getPower() {
         return power;
     }
 
-    public void setPowerConsumption(int power) {
+    public void setPower(int power) {
         this.power = power;
     }
 }

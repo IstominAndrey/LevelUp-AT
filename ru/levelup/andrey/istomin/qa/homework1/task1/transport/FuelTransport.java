@@ -4,7 +4,7 @@ import ru.levelup.andrey.istomin.qa.homework1.task1.transport.enums.FuelType;
 
 //класс транспорта, потребляющих топливо
 
-public class FuelTransport extends Transport implements TransportOutput{
+public class FuelTransport extends Transport {
     protected FuelType fuelType;               //тип топлива
     protected int fuelConsumption;             //расход топлива литр/км
 
@@ -32,9 +32,4 @@ public class FuelTransport extends Transport implements TransportOutput{
         this.fuelConsumption = fuelConsumption;
     }
 
-    @Override
-    public void Output() {
-        System.out.println("Стоимость: " + this.cost + " рублей, маршрут: " + this.routeNumber + ", модель " + model +
-                ", тип топлива: " + this.fuelType + ", расход топлива: " + this.fuelConsumption);
-    }
 }

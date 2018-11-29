@@ -2,7 +2,7 @@ package ru.levelup.andrey.istomin.qa.homework1.task1.transport;
 
 // абстрактный класс Транспорт
 
-public abstract class Transport {
+public class Transport {
     protected int cost;             //стоимость
     protected String routeNumber;   //номер маршрута
     protected String model;         //название модели
@@ -37,5 +37,10 @@ public abstract class Transport {
     public void setModel(String model) {
         model = model;
     }
+
+
+
+
+
 
 }

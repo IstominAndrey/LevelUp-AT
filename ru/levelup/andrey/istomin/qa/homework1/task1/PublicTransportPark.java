@@ -15,6 +15,7 @@ import static ru.levelup.andrey.istomin.qa.homework1.task1.transport.enums.FuelT
 import static ru.levelup.andrey.istomin.qa.homework1.task1.transport.enums.FuelType.PETROL;
 
 public class PublicTransportPark {
+
     public static void main(String[] args) {
 
         //объявление списков данных
@@ -39,68 +40,80 @@ public class PublicTransportPark {
         trams.add(new Tram(950000,"100","71-623-03" , 450));
         trams.add(new Tram(1000000,"57","71-633" , 300));
 
-
         //вывод списков на экран
 
         System.out.println("Список автобусов:");
-        for (int i = 0; i < buses.size(); i++) {
-            buses.get(i).Output();
-        }
-        System.out.println("==============================================");
-
-        System.out.println("Список мини-автобусов (маршруток):");
-        for (int i = 0; i < miniBuses.size(); i++) {
-            miniBuses.get(i).Output();
-        }
-        System.out.println("==============================================");
-
+        PrintListOfTransport(buses);
+        System.out.println("Список минибасов (маршруток):");
+        PrintListOfTransport(miniBuses);
         System.out.println("Список троллейбусов:");
-        for (int i = 0; i < trolleybuses.size(); i++) {
-            trolleybuses.get(i).Output();
-        }
-        System.out.println("==============================================");
-
+        PrintListOfTransport(trolleybuses);
         System.out.println("Список трамваев:");
-        for (int i = 0; i < trams.size(); i++) {
-            trams.get(i).Output();
-        }
-        System.out.println("==============================================");
+        PrintListOfTransport(trams);
 
-        //расчет стоимости автопарка
+        //расчет суммарной стоимости автопарка
 
-        int sumCost = 0;                               // суммарная стоимость
+        int sumCost = 0;
 
-        for (int i = 0; i < buses.size(); i++) {
-            sumCost += buses.get(i).getCost();
-        }
-        for (int i = 0; i < miniBuses.size(); i++) {
-            sumCost += miniBuses.get(i).getCost();
-        }
-        for (int i = 0; i < trolleybuses.size(); i++) {
-            sumCost += trolleybuses.get(i).getCost();
-        }
-        for (int i = 0; i < trams.size(); i++) {
-            sumCost += trams.get(i).getCost();
-        }
+        sumCost += calculateTransportSumCost(buses);
+        sumCost += calculateTransportSumCost(miniBuses);
+        sumCost += calculateTransportSumCost(trolleybuses);
+        sumCost += calculateTransportSumCost(trams);
+
         System.out.println("Суммарная стоимость автопарка: " + sumCost + " рублей");
         System.out.println("==============================================");
 
         // сортировка автобусов по расходу топлива
 
         System.out.println("Сортировка всех типов автобусов по расходу топлива:");
-        List<FuelTransport> allBuses = new ArrayList<>();
+        List<FuelTransport> allBuses;
 
-        // объединение списков
+        // объединение списков автобусов
 
-        for (int i = 0; i < buses.size(); i++) {
-            allBuses.add(buses.get(i));
-        }
-        for (int i = 0; i < miniBuses.size(); i++) {
-            allBuses.add(miniBuses.get(i));
-        }
+        allBuses = ListOfAllBuses(buses, miniBuses);
 
         // сортировка списка
 
+        PrintSortedBusesByFuelConsumption(allBuses);
+
+        // нахождение автобусов, соответсвующих заданным параметрам
+        // максимальные и минимальные параметры
+
+        int maxConsumption = 25;
+        int minConsumption = 14;
+        int maxCost = 1200000;
+        int minCost = 650000;
+
+        PrintBusesMatchingParameters(allBuses, maxConsumption, minConsumption, maxCost, minCost);
+    }
+
+    private static int calculateTransportSumCost(List<? extends Transport> transports) {
+        int sum = 0;
+        for (Transport transport: transports) {
+            sum += transport.getCost();
+        }
+        return sum;
+    }
+
+    private static void PrintListOfTransport(List<? extends Transport> transports) {
+        for (Transport transport: transports) {
+            System.out.println(transport);
+        }
+        System.out.println("==============================================");
+    }
+
+    private static List<FuelTransport> ListOfAllBuses (List<Bus> buses, List<MiniBus> miniBuses) {
+        List<FuelTransport> allBuses = new ArrayList<>();
+        for (FuelTransport bus: buses) {
+            allBuses.add(bus);
+        }
+        for (FuelTransport bus: miniBuses) {
+            allBuses.add(bus);
+        }
+        return allBuses;
+    }
+
+    private static void PrintSortedBusesByFuelConsumption (List<FuelTransport> allBuses) {
         for (int i = allBuses.size() - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (allBuses.get(j).getFuelConsumption() < allBuses.get(j + 1).getFuelConsumption()) {
@@ -109,27 +122,26 @@ public class PublicTransportPark {
                 }
             }
         }
-
-        for (int i = 0; i < allBuses.size(); i++) {
-            allBuses.get(i).Output();
+        for (FuelTransport bus: allBuses) {
+            System.out.println(bus);
         }
         System.out.println("==============================================");
+    }
 
-        // нахождение автобусов, соответсвующих заданным параметрам
-
-        int minConsumtion, maxConsumption, maxCost, minCost;        // максимальные и минимальные параметры
-        minConsumtion = 14;
-        maxConsumption = 25;
-        maxCost = 1200000;
-        minCost = 650000;
+    private static void PrintBusesMatchingParameters (List<FuelTransport> allBuses, int maxConsumption,
+                                                      int minConsumption, int maxCost, int minCost) {
+        boolean withinCostRange, withinFuelConsumptionRange;
 
         System.out.println("Список всех автобусов, удовлетворяющих заданным параметрам:");
 
         for (FuelTransport tempBus : allBuses) {
-            if ((tempBus.getCost() <= maxCost) && (tempBus.getCost() >= minCost) &&
-               (tempBus.getFuelConsumption() <= maxConsumption) && (tempBus.getFuelConsumption() >= minConsumtion)) {
-               tempBus.Output();
+            withinCostRange = (tempBus.getCost() <= maxCost) && (tempBus.getCost() >= minCost);
+            withinFuelConsumptionRange = (tempBus.getFuelConsumption() <= maxConsumption) &&
+                    (tempBus.getFuelConsumption() >= minConsumption);
+            if (withinCostRange && withinFuelConsumptionRange) {
+                System.out.println(tempBus);
             }
         }
     }
+
 }
