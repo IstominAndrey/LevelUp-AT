@@ -1,0 +1,34 @@
+Home Page: https://www.w3schools.com/
+
+	Tutorials menu: //div/a[@id="navbtn_tutorials"]
+	Learn SQL (tutorial menu item): //nav[@id="nav_tutorials"]//a[@href='/sql/default.asp']
+	Learn XML (left menu item): //nav[@id="mySidenav"]/div/a[@href="/xml/default.asp"]
+	Color picker: //a/img[@src='/images/colorpicker.png']
+	Try it yourself button (CSS Example): //div[@class='w3-col l6']/a[@href='/css/tryit.asp?filename=trycss_default']
+	HTML Exersises button: //div[@class='w3-dark-grey w3-center w3-padding-large w3-padding-48']//a[@href='/html/html_exercises.asp']
+	Like on Facebook: //footer/a[@title='Like W3Schools on Facebook']
+	Translate button: //div[@class='w3-bar w3-theme w3-card-2 w3-wide notranslate']//a[@onclick='open_translate(this)']
+	Search button: //div[@class='w3-bar w3-theme w3-card-2 w3-wide notranslate']//a[@onclick='open_search(this)']
+	Learn HOW TO button: //div[@class='w3-white w3-center w3-padding-large w3-padding-16']/p/a[@href="/howto/default.asp"]
+
+SQL WHERE Clause Page: https://www.w3schools.com/sql/sql_where.asp
+
+	Try it Yourself button (Text Fields vs. Numeric Fields): //div[@id="main"]//a[@href='trysql.asp?filename=trysql_select_where_number']
+	Tabs Item (HOW TO menu): //div[@id="right"]//div[@class='w3-container w3-left-align w3-padding-16']/a[@href="/howto/howto_js_tabs.asp"]
+	Color Picker: //div[@id="right"]/div[@class="sidesection"]/a[@href="/colors/colors_picker.asp"]
+	SQL Create DB menu item: //div[@id="leftmenuinnerinner"]/a[@href="sql_create_db.asp"]
+	Read more button (Certificates): //div[@id="right"]//a[contains(text(), 'Read More')]
+
+Color Picker Page: https://www.w3schools.com/colors/colors_picker.asp
+
+	Color input text field: //div[@id='entercolorDIV']/input
+	OK button (Enter a Color): //div[@id='entercolorDIV']/button
+	Color Picker (Use HTML5): //div[@id='html5DIV']/*[@id="html5colorpicker"]
+	Next button: //div[@id="main"]//a[@href='colors_shades.asp']
+	Color RGB menu item: //div[@id="leftmenuinnerinner"]/a[contains(text(), 'Color RGB')]
+	
+	
+
+
+	
+	
