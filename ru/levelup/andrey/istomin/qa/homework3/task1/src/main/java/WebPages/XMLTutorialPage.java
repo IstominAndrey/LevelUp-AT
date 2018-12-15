@@ -8,6 +8,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class XMLTutorialPage extends AbstractPage {
+
+    public static final String XML_TUTORIAL_PAGE_URL = "https://www.w3schools.com/xml/default.asp";
+
     public XMLTutorialPage(WebDriver driver) {
         super(driver);
     }

@@ -10,8 +10,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.annotation.ElementType;
+import java.util.concurrent.TimeUnit;
 
 public class XMLHttpRequestTutorialPage extends AbstractPage {
+
+    public static final String XML_HTTP_REQUEST_TUTORIAL_PAGE_URL = "https://www.w3schools.com/xml/xml_http.asp";
 
     protected XMLHttpRequestTutorialPage(WebDriver driver) {
         super(driver);
@@ -27,8 +30,8 @@ public class XMLHttpRequestTutorialPage extends AbstractPage {
     }
 
     public String checkExampleResult() {
-        xmlHttpResponseSuggestions = (new WebDriverWait(driver, 10))            // явное ожидание не срабатывает
-                .until(ExpectedConditions.visibilityOf(xmlHttpResponseSuggestions));            // через Thread.sleep работает
+        //xmlHttpResponseSuggestions = (new WebDriverWait(driver, 10))                            // явное ожидание не срабатывает
+        //        .until(ExpectedConditions.visibilityOf(xmlHttpResponseSuggestions));            // через Thread.sleep работает
         return driver.findElement(By.xpath("//form[@action='javascript:void(0);']//span[@id='txtHint']")).getText();
     }
 }

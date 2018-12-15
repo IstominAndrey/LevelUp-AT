@@ -10,6 +10,7 @@ import java.util.Set;
 
 public class SQLWhereClausePage extends AbstractPage {
 
+    public static final String SQL_WHERE_CLAUSE_PAGE_URL = "https://www.w3schools.com/sql/sql_where.asp";
 
     protected SQLWhereClausePage(WebDriver driver) {
         super(driver);

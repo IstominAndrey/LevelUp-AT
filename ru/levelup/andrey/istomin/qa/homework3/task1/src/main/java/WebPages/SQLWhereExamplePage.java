@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class SQLWhereExamplePage extends AbstractPage {
 
+    public static final String SQL_WHERE_EXAMPLE_PAGE_URL = "https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_where_number";
+
     protected SQLWhereExamplePage(WebDriver driver) {
         super(driver);
     }

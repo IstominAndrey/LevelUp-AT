@@ -10,10 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Set;
 
-import static WebPages.FirstSQLExercisePage.FIRST_SQL_EXERCISE_PAGE_URL;
-
 public class SQLExercisesDescriptionPage extends AbstractPage {
 
+    public static final String SQL_EXERCISES_DESCRIPTION_PAGE_URL = "https://www.w3schools.com/sql/sql_exercises.asp";
 
     public SQLExercisesDescriptionPage(WebDriver driver) {
         super(driver);

@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class JavaScriptReferencePage extends AbstractPage {
 
+    public static final String JAVA_SCRIPT_REFERENCE_PAGE_URL = "https://www.w3schools.com/jsref/default.asp";
+
     protected JavaScriptReferencePage(WebDriver driver) {
         super(driver);
     }

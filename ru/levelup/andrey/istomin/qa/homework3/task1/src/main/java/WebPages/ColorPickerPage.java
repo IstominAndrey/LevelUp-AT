@@ -10,6 +10,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class ColorPickerPage extends AbstractPage {
 
+    public static final String COLOR_PICKER_PAGE_URL = "https://www.w3schools.com/colors/colors_picker.asp";
+
     protected ColorPickerPage(WebDriver driver) {
         super(driver);
     }

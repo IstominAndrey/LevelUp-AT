@@ -6,10 +6,8 @@ WebPages\JavaScriptReferencePage.class
 WebPages\W3SchoolsHomePage.class
 WebPages\XMLHttpRequestTutorialPage.class
 WebPages\SQLWhereClausePage.class
-WebElements\HomePageNavigationMenu.class
 AbstractPage\AbstractPage$1.class
 WebPages\ColorPickerPage.class
 WebPages\SQLTutorialPage.class
-WebElements\HomePageDropodownMenu.class
 WebPages\JavaScriptArrayReferencePage.class
 WebPages\XMLTutorialPage.class

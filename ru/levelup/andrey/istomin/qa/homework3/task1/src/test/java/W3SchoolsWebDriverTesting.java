@@ -10,7 +10,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static WebPages.FirstSQLExercisePage.CORRECT_RESPONSE;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -24,11 +23,9 @@ public class W3SchoolsWebDriverTesting {
         FirefoxDriverManager.getInstance().setup();
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\2isto\\.m2\\repository\\webdriver\\chromedriver\\chromedriver.exe");
         driver = new ChromeDriver();
-        //driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
         driver.get(W3SchoolsHomePage.W3SCHOOLS_SITE_URL);
-        //driver.get("https://www.w3schools.com/sql/exercise.asp");
     }
 
     @After
@@ -63,9 +60,9 @@ public class W3SchoolsWebDriverTesting {
                 .clickLearnXMLItem()
                 .clickXMLHttpRequestItem()
                 .inputExampleTextField("A");
-        //Thread.sleep(5000);
+        Thread.sleep(1000);
         assertThat("Не прошел тест XML Http Request",
-                xmlHttpRequestTutorialPage.checkExampleResult(),
+                xmlHttpRequestTutorialPage.checkExampleResult(),            // не срабатывает явное ожидание
                 containsString("Anna, Amanda"));
     }
 
