@@ -1,0 +1,27 @@
+create table publishers
+(
+	-- integer auto increment
+	id serial primary key,
+	name varchar not null unique
+);
+
+create table book
+(
+	id serial primary key,
+	isbn varchar(30) not null unique,
+	name varchar not null,
+	year integer not null,
+	publisher_id integer not null
+);
+
+insert into book(name, isbn, year, publisher_id) values
+	('С/С++', 		'435-234', 		2013, 1),
+	('Java 5', 		'42364-3', 		2011, 2),
+	('Python 3.2', 	'656-43', 		2019, 1),
+	('Regexp', 		'423-4523',		2003, 3),
+	('SQL', 		'423-411', 		2006, 1);
+
+insert into publishers(name) values
+	('Москва'),
+	('Эксмо'),
+	('Самиздат');
